@@ -1,11 +1,13 @@
 <template>
 	<div class="header">
-		<div class="header-logo">DoniShop</div>
-		<div class="header-links">
-			<router-link class="header-links-link" :class="{'active': i === 1}" :to="link.href" v-for="(link, i) in links" :key="i">
-				<div class="header-links-link-title">{{link.title}}</div>
-				<fai class="header-links-link-img" :icon="['fas', link.img]" />
-			</router-link>
+		<div>
+			<div class="header-logo">DoniShop</div>
+			<div class="header-links">
+				<router-link class="header-links-link" :class="{'active': i === 1}" :to="link.href" v-for="(link, i) in links" :key="i">
+					<div class="header-links-link-title">{{link.title}}</div>
+					<fai class="header-links-link-img" :icon="['fas', link.img]" />
+				</router-link>
+			</div>
 		</div>
 	</div>
 </template>
@@ -47,13 +49,6 @@
 	@import '@/assets/scss/all.scss';
 
 	.header{
-		background-color: $white;
-		flex-direction: row;
-		justify-content: space-between;
-		padding: 0 160px;
-		&>div{
-			width: auto;
-		}
 		&-logo{
 			font-weight: bold;
 			font-size: 1.5rem;

@@ -31,18 +31,18 @@
 			</div>
 
 			<div class="body-results">
-				<div class="col-lg-3 col-md-4 col-sm-6 col-12" v-for="data in resultes">
-					<div class="body-results-result">
-						<div class="body-results-result-img"><img :src="data.img"></div>
-						<div class="body-results-result-title">{{data.title}}</div>
-						<div class="body-results-result-rating">
-							<div class="body-results-result-rating-stars">
+				<div class="col-lg-3 col-md-4 col-sm-6 col-12" v-for="(data, i) in resultes">
+					<router-link class="item-result" :to="'/product/' + i">
+						<div class="item-result-img"><img :src="data.img"></div>
+						<div class="item-result-title">{{data.title}}</div>
+						<div class="item-result-rating">
+							<div class="item-result-rating-stars">
 								<fai :icon="['fas', 'star']" v-for="i in 5" />
 							</div>
-							<div class="body-results-result-rating-value">({{data.rating_cost}})</div>
+							<div class="item-result-rating-value">({{data.rating_cost}})</div>
 						</div>
-						<div class="body-results-result-cost">{{data.cost}}<fai :icon="['fas', 'tenge']"/></div>
-					</div>
+						<div class="item-result-cost">{{data.cost}}<fai :icon="['fas', 'tenge']"/></div>
+					</router-link>
 				</div>
 			</div>
 
@@ -62,6 +62,48 @@
 		data(){
 			return {
 				resultes: [
+					{
+						img: '',
+						title: 'iPhone X 256 GB black A2019 Model',
+						rating_value: 4.5,
+						rating_cost: 15,
+						cost: 150000
+					},
+					{
+						img: '',
+						title: 'iPhone X 256 GB black A2019 Model',
+						rating_value: 4.5,
+						rating_cost: 15,
+						cost: 150000
+					},
+					{
+						img: '',
+						title: 'iPhone X 256 GB black A2019 Model',
+						rating_value: 4.5,
+						rating_cost: 15,
+						cost: 150000
+					},
+					{
+						img: '',
+						title: 'iPhone X 256 GB black A2019 Model',
+						rating_value: 4.5,
+						rating_cost: 15,
+						cost: 150000
+					},
+					{
+						img: '',
+						title: 'iPhone X 256 GB black A2019 Model',
+						rating_value: 4.5,
+						rating_cost: 15,
+						cost: 150000
+					},
+					{
+						img: '',
+						title: 'iPhone X 256 GB black A2019 Model',
+						rating_value: 4.5,
+						rating_cost: 15,
+						cost: 150000
+					},
 					{
 						img: '',
 						title: 'iPhone X 256 GB black A2019 Model',
@@ -112,12 +154,6 @@
 <style lang="scss" scoped>
 	@import '@/assets/scss/all.scss';
 	.body{
-		padding: 25px 160px;
-		&-title{
-			align-items: flex-start;
-			font-weight: bold;
-			font-size: 2.5rem;
-		}
 		&-search{
 			background-color: $white;
 			flex-direction: row;
@@ -202,75 +238,6 @@
 			&-second{
 				font-size: 1.1rem;
 				align-items: flex-start;
-			}
-		}
-		&-results{
-			flex-direction: row;
-			flex-wrap: wrap;
-
-			&-result{
-				margin: 0 10%;
-				background-color: $white;
-				&-img{
-					height: 200px;
-					background-color: $grey;
-				}
-				&-title{
-					padding: 0.5% 10%;
-					align-items: flex-start;
-				}
-				&-rating{
-					padding: 0.5% 10%;
-					flex-direction: row;
-					justify-content: flex-start;
-					&-stars{
-						flex-direction: row;
-						width: auto;
-						&>svg{
-							color: $yellow;
-						}
-					}
-					&-value{
-						font-size: 0.75rem;
-						width: auto;
-					}
-				}
-				&-cost{
-					padding: 0.5% 10%;
-					font-weight: bold;
-					flex-direction: row;
-					justify-content: flex-start;
-					font-size: 1.25rem;
-					&>svg{
-						margin-left: 5px;
-					}
-				}
-			}
-		}
-		&-pages{
-			margin-top: 50px;
-			flex-direction: row;
-			border: 1px solid $purple;
-			border-radius: 5px;
-			width: auto;
-			outline: none;
-			&-page{
-				width: auto;
-				padding: 8px 12px;
-				border-left: 1px solid $purple;
-				cursor: pointer;
-				transition: 0.3s;
-				&:first-child{
-					border: unset;
-				}
-				&.active{
-					background-color: $purple_h !important;
-					color: $white;
-				}
-				&:hover{
-					background-color: $purple;
-					color: $white;
-				}
 			}
 		}
 	}
